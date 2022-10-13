@@ -1,0 +1,13 @@
+﻿@using Folders.Data.DbModels
+@model List<Folder>
+<div>
+    <div>
+       <strong>
+           @ViewBag.Name
+       </strong>
+    </div>
+    @foreach(var a  in @Model)
+    {
+        <a class="navbar-brand" asp-controller="Home" asp-action="Catalog"  asp-route-id=@a.Id>@a.Name</a>
+    }
+</div>

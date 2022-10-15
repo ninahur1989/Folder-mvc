@@ -23,57 +23,62 @@ namespace Folders.Data
                         new Folder()
                         {
                             Id = 1,
-                            Name = "Creating Digital images",
+                            Name = "Main",
                             FolderId = 0,
                         },
                         new Folder()
                         {
                             Id = 2,
-                            Name = "Resources",
+                            Name = "Creating Digital images",
                             FolderId = 1,
                         },
                         new Folder()
                         {
                             Id = 3,
-                            Name = "Evidence",
-                            FolderId = 1,
+                            Name = "Resources",
+                            FolderId = 2,
                         },
                         new Folder()
                         {
                             Id = 4,
-                            Name = "Graphic Product",
-                            FolderId = 1,
+                            Name = "Evidence",
+                            FolderId = 2,
                         },
                         new Folder()
                         {
                             Id = 5,
-                            Name = "Primary Sources",
-                            FolderId = 2,
-                        },
-                         new Folder()
-                        {
-                            Id = 6,
-                            Name = "Secondary Sources",
+                            Name = "Graphic Product",
                             FolderId = 2,
                         },
                         new Folder()
                         {
-                            Id = 7,
+                            Id = 6,
                             Name = "Primary Sources",
-                            FolderId = 4,
+                            FolderId = 3,
                         },
                          new Folder()
                         {
-                            Id = 8,
+                            Id = 7,
                             Name = "Secondary Sources",
-                            FolderId = 4,
+                            FolderId = 3,
+                        },
+                        new Folder()
+                        {
+                            Id = 8,
+                            Name = "Primary Sources",
+                            FolderId = 5,
+                        },
+                         new Folder()
+                        {
+                            Id = 9,
+                            Name = "Secondary Sources",
+                            FolderId = 5,
                         }
                     });
 
                 }
                 context.SaveChanges();
             }
-
         }
     }
 }

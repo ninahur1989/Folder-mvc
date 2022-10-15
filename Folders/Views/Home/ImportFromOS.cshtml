@@ -1,29 +1,9 @@
 ﻿@using Folders.Data.DbModels
 @model Folder
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:FileUpload ID="FileUpload1" runat="server" BackColor="#FF66CC" Font-Size="Medium" Height="38px" Width="301px" />
-        <p>
-            <asp:Button ID="Button1" runat="server" BackColor="Aqua" BorderStyle="Solid" Font-Bold="True" Font-Italic="False" Font-Size="X-Large" Height="48px" OnClick="Button1_Click" Text="Upload" Width="226px" />
-            <asp:Label ID="Label1" runat="server" BackColor="Lime" Font-Size="Medium" Text="Label"></asp:Label>
-        </p>
-    </form>
-</body>
-</html>
 <div>
     <form asp-action="ImportFromOS">
         <label asp-for="Path" class="control-label"></label>
         <input asp-for="Path" class="form-control" />
         <span asp-validation-for="Path" class="text-danger"></span>
     </form>
-    <form id="Form1" method="post" runat="server" EncType="multipart/form-data" action="WebForm1.aspx">
-        ds
-    </form>
-
 </div>

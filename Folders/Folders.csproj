@@ -11,6 +11,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Web.Mvc.Expressions" Version="1.0.6" />
+    <PackageReference Include="System.Web.Mvc.Extensions" Version="1.1.1.2" />
+    <PackageReference Include="System.Web.Mvc.Extensions.Mvc.4" Version="1.0.9" />
+    <PackageReference Include="System.Web.Providers" Version="1.2.0" />
   </ItemGroup>
 
 </Project>

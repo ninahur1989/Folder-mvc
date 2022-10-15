@@ -10,5 +10,4 @@
 
         public DbSet<Folder> Folders { get; set; }
     }
-
 }

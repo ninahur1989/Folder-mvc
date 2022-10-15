@@ -1,4 +1,6 @@
 using Folders.Data;
+using Folders.Interfaces;
+using Folders.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +21,8 @@ namespace Folders
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddScoped<IHomeService, HomeService>();
+
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddControllersWithViews();
         }

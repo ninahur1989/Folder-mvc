@@ -1,5 +1,6 @@
 ﻿using Folders.Data;
 using Folders.Data.DbModels;
+using Folders.Interfaces;
 using Folders.Models;
 using Folders.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +17,13 @@ namespace Folders.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext _context;
+        private readonly IHomeService _service;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext context)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context, IHomeService homeService)
         {
             _logger = logger;
             _context = context;
+            _service = homeService;
         }
 
         public IActionResult Index()
@@ -30,43 +33,31 @@ namespace Folders.Controllers
 
         public IActionResult Catalog(int id)
         {
-            if(id >= 1)
+            if (id >= 1)
             {
                 var thisFolder = _context.Folders.FirstOrDefault(x => x.Id == id);
                 ViewBag.Name = thisFolder.Name;
 
                 var attachedFolder = _context.Folders.Where(x => x.FolderId == id).ToList();
 
-
                 return View(attachedFolder);
             }
             return Ok("error");
 
-
         }
 
-        
+
         public IActionResult ImportFromOS()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult ImportFromOS(Folder a)
+        public IActionResult ImportFromOS(Folder folder)
         {
-            a.Id = _context.Folders.Count() + 1;
-            a.Name = a.Path;
-            a.FolderId = 0;
-            _context.Folders.Add(a);
-            if (_context.SaveChanges() != null)
+            if (_service.ImportDataFromOS(folder))
             {
-                var homeservice = new HomeService(_context);
-                var dir = a.Path;
-                homeservice.PrintDirectoryTree(dir, 2, new string[] { "folder3" });
-                _context.Folders.AddRange(homeservice.myFolders);
-                _context.SaveChanges();
-
-                return Ok("Succes");
+                return RedirectToAction("Catalog", new { id = 1 });
             }
 
             return Ok("error");

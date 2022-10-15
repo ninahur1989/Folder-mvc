@@ -57,6 +57,26 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Web.Mvc.Expressions": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "System.Web.Mvc.Extensions": {
+              "target": "Package",
+              "version": "[1.1.1.2, )"
+            },
+            "System.Web.Mvc.Extensions.Mvc.4": {
+              "target": "Package",
+              "version": "[1.0.9, )"
+            },
+            "System.Web.Providers": {
+              "target": "Package",
+              "version": "[1.2.0, )"
             }
           },
           "imports": [

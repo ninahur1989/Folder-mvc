@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Folders
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -45,11 +46,12 @@ namespace Folders
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Catalog}/{path?}/{name?}");
             });
             AppDbInitializer.Seed(app);
         }

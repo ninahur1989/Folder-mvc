@@ -8,6 +8,6 @@
     </div>
     @foreach(var a  in @Model)
     {
-        <a class="navbar-brand" asp-controller="Home" asp-action="Catalog"  asp-route-id=@a.Id>@a.Name</a>
+        <a class="navbar-brand" asp-controller="Home" asp-action="Catalog"  asp-route-path=@a.Path asp-route-name=@a.Name>@a.Name</a>
     }
 </div>

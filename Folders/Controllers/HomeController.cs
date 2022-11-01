@@ -31,18 +31,27 @@ namespace Folders.Controllers
             return View();
         }
 
-        public IActionResult Catalog(int id)
+        public IActionResult Catalog(string? path, string? name)
         {
-            if (id >= 1)
+            if (string.IsNullOrEmpty(name))
             {
-                var thisFolder = _context.Folders.FirstOrDefault(x => x.Id == id);
+                var thisFolder = _context.Folders.FirstOrDefault(x => x.Path == "");
                 ViewBag.Name = thisFolder.Name;
 
-                var attachedFolder = _context.Folders.Where(x => x.FolderId == id).ToList();
+                var attachedFolder = _context.Folders.Where(x => x.FolderId == thisFolder.Id).ToList();
 
                 return View(attachedFolder);
             }
-            return Ok("error");
+            else
+            {
+
+                var thisFolder = _context.Folders.FirstOrDefault(x => x.Path == path && x.Name == name);
+                ViewBag.Name = thisFolder.Name;
+
+                var attachedFolder = _context.Folders.Where(x => x.FolderId == thisFolder.Id).ToList();
+
+                return View(attachedFolder);
+            }
 
         }
 
